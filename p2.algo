@@ -1,0 +1,87 @@
+ALGORITHM produitScalaire
+ 
+ // on definit la procedure pour calculer le produit scalaire //
+
+PROCEDURE dot_product(n : INTEGER , VAR V1 : ARRAY_OF FLOAT, VAR V2  : ARRAY_OF FLOAT, VAR ps : INTEGER)
+VAR
+    i : INTEGER;
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        ps := ps + V1[i] * V2[i];
+    END_FOR
+    
+END
+
+// pour me simplifier je definie une fonction pour remplir mes vecteurs //
+
+    PROCEDURE init_vect(n : INTEGER, VAR V : ARRAY_OF FLOAT) 
+VAR
+    i : INTEGER;
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        write("valeurs i du tableau");
+        read(V[i]);
+    END_FOR
+    
+END
+
+// on appelle la procedure ds notre algorithme  pour connaitre le produit scalaire de 2 vecteurs quelconque //
+VAR
+    V1 : ARRAY_OF FLOAT;
+    V2  : ARRAY_OF FLOAT;
+    n : INTEGER;
+    ps : FLOAT :=0;
+BEGIN
+    
+    // j'initialise mes vecteurs a  l'aide de init_vect() //
+    init_vect(V1,n);
+    init_vect(V2, n);
+
+    // maintenant je fais appel a dot_product() pour modifier la var ps//
+    dot_product( V1 , V2, n, ps);
+
+    // je verifie les condition d'orthogonalite //
+    
+    IF (ps ==0;) THEN
+        write("les vecteurs sont orthogonaux")
+    END_IF
+    IF (ps <> 0)THEN
+        write("les vecteurs ne sont pas orthogonaux")
+    END_IF
+
+END
+
+// on efinit  une fonction pour calculer le produit scalaire de vecteurs donnes //
+
+
+FUNCTION f_dot_product(n : INTEGER , VAR V1 : ARRAY_OF FLOAT, VAR V2  : ARRAY_OF FLOAT) : FLOAT
+VAR
+    i,n : INTEGER;
+    ps : FLOAT :=0;
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        ps := ps + V1[i] * V2[i];
+    END_FOR
+    RETURN (ps);
+END
+
+// on appelle lla fonction dans notre algorithme //
+VAR
+    V1 : ARRAY_OF FLOAT;
+    V2  : ARRAY_OF FLOAT;
+    n : INTEGER;
+    ps : FLOAT :=0;
+BEGIN
+    
+    init_vect(v1,n);
+    init_vect(v2,n);
+
+   ps := f_dot_product( V1 , V2, n);
+   IF (ps := 0 ) THEN 
+    write(les tableaux sont orthogonaux);;
+   END_IF
+   IF (ps <>0) THEN
+    write("les vecteurs ne sont pas orthogonaux");
+   END_IF
+
+END

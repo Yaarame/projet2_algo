@@ -1,0 +1,79 @@
+ALGORITHM comparaison_element
+VAR
+     T1 : ARRAY_OF FLOAT[N]
+     T2 : ARRAY_OF FLOAT[M]
+     i,j, : INTEGER
+     val, som : FLOAT :=0;
+BEGIN
+    // on recupere taille tableau 1 dans N //
+
+    write("Taille tableau1");
+    read(N);
+
+    // on initialise tableau 1 //
+
+    FOR i FROM 0 TO N-1 STEP 1 DO
+        write("Element[i] du tableau1");
+        read(T1[i]);
+    END_FOR
+
+    // on repete le mem pour tab 2 //
+
+    write("Taille tableau2");
+    read(M);
+    FOR j FROM 0 TO M-1 STEP 1 DO
+        write("Element[j] du tableau2");
+        read(T2[j]);
+    END_FOR
+
+    // on essaie de trouver les valeurs distinctes de part et d'aure des 2 tableaux //
+
+    // on fixe dc un elemt du tableau 1 et on compare avec M elements du tab2 //
+
+    FOR i FROM 0 TO N-1  step 1 DO
+         FOR j FROM 0 TO M-1 STEP 1  DO
+
+         // a chaq comparaison  <> de part et d'autre, on garde element T1[i] dans value //
+
+            IF (T1[i] <> T2[j]) THEN
+                val :=  T1[i];
+
+            // si T1[i] rencontre son paire identique on l'ignore et on remet val a '0' //
+
+            ELSE
+                val :=0;
+            END_IF
+         END_FOR
+
+         // A chaq terme de la boucle enfant, on remet a jour var som //
+
+         som := som + val;
+    END_FOR
+
+    // on doit refaire le travail inverse en comparant cette fois pour chaq elemt T2 [j] aux N elmt T1[i] //
+     
+      FOR j FROM 0 TO M-1  step 1 DO
+         FOR i FROM 0 TO N-1 STEP 1  DO
+
+         // a chaq comparaison  <> de part et d'autre, on garde element T2[j] dans val //
+
+            IF (T2[j] <> T1[i]) THEN
+                val :=  T2[j];
+
+            // si T2[j] rencontre son paire identique on l'ignore et on remet val a '0' //
+
+            ELSE
+                val :=0;
+            END_IF
+         END_FOR
+
+         // A chaq terme de la boucle enfant, on remet a jour var som //
+
+         som := som + val;
+
+    END_FOR
+
+    // on affiche le contenu de somm //
+
+    write(som);
+END
