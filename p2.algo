@@ -1,6 +1,6 @@
  
  // on definit la procedure pour calculer le produit scalaire 
- PROCEDURE  dot_product(VAR  V1  :  ARRAY_OF  FLOAT,  VAR  V2  :ARRAY_OF FLOAT,  n  :=  INTEGER,  ps  :=  FLOAT)
+ PROCEDURE  dot_product(VAR  V1  :  ARRAY_OF  FLOAT,  VAR  V2  :ARRAY_OF FLOAT,  n  :=  INTEGER,  VAR  ps  :=  FLOAT)
 
 VAR
     i : INTEGER;
