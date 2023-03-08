@@ -1,8 +1,7 @@
-ALGORITHM produitScalaire
  
- // on definit la procedure pour calculer le produit scalaire //
+ // on definit la procedure pour calculer le produit scalaire 
+ PROCEDURE  dot_product(VAR  V1  :  ARRAY_OF  FLOAT,  VAR  V2  :ARRAY_OF FLOAT,  n  :=  INTEGER,  ps  :=  FLOAT)
 
-PROCEDURE dot_product(n : INTEGER , VAR V1 : ARRAY_OF FLOAT, VAR V2  : ARRAY_OF FLOAT, VAR ps : INTEGER)
 VAR
     i : INTEGER;
 BEGIN
@@ -25,7 +24,9 @@ BEGIN
     
 END
 
-// on appelle la procedure ds notre algorithme  pour connaitre le produit scalaire de 2 vecteurs quelconque //
+// on appelle la procedure ds notre algorithme  pour connaitre le produit scalaire de 2 vecteurs quelconque 
+ALGORITHM produitScalaire
+
 VAR
     V1 : ARRAY_OF FLOAT;
     V2  : ARRAY_OF FLOAT;
@@ -65,7 +66,9 @@ BEGIN
     RETURN (ps);
 END
 
-// on appelle lla fonction dans notre algorithme //
+// on appelle lla fonction dans notre algorithme 
+ALGORITHM produitScalaire
+
 VAR
     V1 : ARRAY_OF FLOAT;
     V2  : ARRAY_OF FLOAT;
